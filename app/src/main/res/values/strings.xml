@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">GetMeBack</string>
+    <string name="get_me_back">Get Me Back</string>
+    <string name="enregistrer_ma_position">Enregistrer ma position</string>
+    <string name="ramener">Aller à la dernière adresse</string>
+    <string name="liste_addresses">Liste d\'adresses</string>
 </resources>
