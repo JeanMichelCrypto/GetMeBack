@@ -1,6 +1,9 @@
 package michelsmartproduction.getmeback;
 
+import android.app.Dialog;
+import android.app.FragmentManager;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,17 +20,11 @@ public class MainActivity extends AppCompatActivity {
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
 
-
-        final Button getBackButton = (Button) findViewById(R.id.getBack);
-        assert getBackButton != null;
-        getBackButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, test.class);
-                startActivity(intent);
-            }
-        });
+        FragmentManager fragmentManager = getFragmentManager();
+        android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Menu Menufragment = new Menu();
+        fragmentTransaction.add(R.id.activity_main, Menufragment);
+        fragmentTransaction.commit();
 
     }
 }

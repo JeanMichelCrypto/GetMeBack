@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/listView"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/white"
+        android:layout_weight="0.58" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/addAdd"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom|end"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_margin="25dp"
+        app:backgroundTint="@color/colorPrimary"
+        android:tint="@color/white"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/retour"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom|left"
+        android:src="@android:drawable/ic_menu_revert"
+        android:layout_margin="25dp"
+        app:backgroundTint="@color/colorPrimary"
+        android:tint="@color/white"
+        />
+
+</android.support.design.widget.CoordinatorLayout>
