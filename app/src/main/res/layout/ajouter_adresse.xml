@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Ajouter une nouvelle addresse"
+        android:textSize="30dp"
+        android:id="@+id/titre"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Rue: "
+        android:textSize="25dp"
+        android:id="@+id/TVrue"
+        android:layout_marginTop="56dp"
+        android:layout_below="@+id/titre"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rue"
+        android:textSize="25dp"
+        android:layout_alignBottom="@+id/TVrue"
+        android:layout_alignEnd="@+id/titre"
+        android:layout_toEndOf="@+id/TVrue" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Numéro: "
+        android:textSize="25dp"
+        android:id="@+id/TVnum"
+        android:layout_below="@+id/rue"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="46dp" />
+
+    <EditText
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:textSize="25dp"
+        android:id="@+id/num"
+        android:layout_alignBottom="@+id/TVnum"
+        android:layout_toEndOf="@+id/TVnum" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Ville: "
+        android:textSize="25dp"
+        android:id="@+id/TVville"
+        android:layout_below="@+id/TVnum"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="46dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ville"
+        android:textSize="25dp"
+        android:layout_alignBottom="@+id/TVville"
+        android:layout_alignEnd="@+id/rue"
+        android:layout_toEndOf="@+id/TVville" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajouter"
+        android:id="@+id/ajouter"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/ville"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Annuler"
+        android:id="@+id/annuler"
+        android:layout_below="@+id/ajouter"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp" />
+
+
+</RelativeLayout>

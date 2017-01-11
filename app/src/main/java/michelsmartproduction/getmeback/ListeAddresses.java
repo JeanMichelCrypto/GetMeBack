@@ -17,18 +17,20 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Lucas on 07/01/2017.
- */
 public class ListeAddresses extends Fragment {
 
-    private ArrayList<String> data = new ArrayList<String>();
+    private ArrayList<String> liste = new ArrayList<String>();
+    TinyDB tinydb;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.listeadr, container, false);
         //Instancier vos composants graphique ici (faîtes vos findViewById)
 
-        final android.support.design.widget.FloatingActionButton retour = (android.support.design.widget.FloatingActionButton) view.findViewById(R.id.retour);
+        android.support.design.widget.FloatingActionButton retour = (android.support.design.widget.FloatingActionButton) view.findViewById(R.id.retour);
+        android.support.design.widget.FloatingActionButton ajouter = (android.support.design.widget.FloatingActionButton) view.findViewById(R.id.addAdd);
+
+        tinydb = new TinyDB(getActivity());
+        liste = tinydb.getListString("listAddr");
 
         retour.setOnClickListener(new View.OnClickListener() {
 
@@ -42,9 +44,20 @@ public class ListeAddresses extends Fragment {
             }
         });
 
+        ajouter.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                AjouterAdr ajout = new AjouterAdr();
+                fragmentTransaction.add(R.id.activity_main, ajout);
+                fragmentTransaction.commit();
+            }
+        });
+
         ListView lv = (ListView) view.findViewById(R.id.listView);
-        generateListContent();
-        lv.setAdapter(new MyListAdaper(getActivity(), R.layout.adresses, data));
+        lv.setAdapter(new MyListAdaper(getActivity(), R.layout.adresses, liste));
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -53,12 +66,6 @@ public class ListeAddresses extends Fragment {
         });
 
         return view;
-    }
-
-    private void generateListContent() {
-        for(int i = 0; i < 55; i++) {
-            data.add("This is row number " + i);
-        }
     }
 
     private class MyListAdaper extends ArrayAdapter<String> {
