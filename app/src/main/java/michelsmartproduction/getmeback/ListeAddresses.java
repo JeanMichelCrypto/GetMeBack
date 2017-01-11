@@ -3,7 +3,9 @@ package michelsmartproduction.getmeback;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,6 +94,15 @@ public class ListeAddresses extends Fragment {
             mainViewholder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    FragmentManager fragmentManager = getFragmentManager();
+                    android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    Plus plus = new Plus();
+                    Bundle args = new Bundle();
+                    args.putInt("id", position);
+                    plus.setArguments(args);
+                    fragmentTransaction.add(R.id.activity_main, plus);
+                    fragmentTransaction.commit();
+
                     Toast.makeText(getContext(), "Button was clicked for list item " + position, Toast.LENGTH_SHORT).show();
                 }
             });
