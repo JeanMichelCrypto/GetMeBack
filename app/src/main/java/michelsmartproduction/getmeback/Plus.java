@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class Plus extends Fragment   { //implements OnMapReadyCallback
+public class Plus extends Fragment   {
 
     private GoogleMap mGoogleMap;
     MapView mMapView;
@@ -51,6 +51,7 @@ public class Plus extends Fragment   { //implements OnMapReadyCallback
         TextView adresse = (TextView) view.findViewById(R.id.adresse);
         Button suppr = (Button) view.findViewById(R.id.supprimer);
         Button retour = (Button) view.findViewById(R.id.retour2);
+        Button go = (Button) view.findViewById(R.id.go);
 
         dlgAlert = new AlertDialog.Builder(getActivity());
         final TinyDB tinydb = new TinyDB(getActivity());
@@ -75,13 +76,29 @@ public class Plus extends Fragment   { //implements OnMapReadyCallback
             }
         });
 
+        go.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Choix2 choix = new Choix2();
+                Bundle args = new Bundle();
+                args.putDouble("lat", lat);
+                args.putDouble("lon", lon);
+                choix.setArguments(args);
+                FragmentManager fragmentManager = getFragmentManager();
+                android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
+                fragmentTransaction.replace(R.id.activity_main, choix);
+                fragmentTransaction.commit();
+            }
+        });
+
         suppr.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 liste.remove(id);
                 tinydb.putListString("listAddr", liste);
-
                 FragmentManager fragmentManager = getFragmentManager();
                 android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
@@ -95,6 +112,7 @@ public class Plus extends Fragment   { //implements OnMapReadyCallback
         Geocoder geoCoder = new Geocoder(getActivity(), Locale.getDefault());
         try {
             List<Address> address = geoCoder.getFromLocationName(adr, 1);
+            //Vérification de la taille de la liste pour éviter les crashs
             if (address.size()>0) {
                 lat = address.get(0).getLatitude();
                 lon = address.get(0).getLongitude();
@@ -117,8 +135,6 @@ public class Plus extends Fragment   { //implements OnMapReadyCallback
             public void onMapReady(GoogleMap mMap) {
                 mGoogleMap = mMap;
 
-
-                // For dropping a marker at a point on the Map
                 LatLng loc = new LatLng(lat, lon);
                 if (lat == 0 && lon == 0){
                     dlgAlert.setTitle("Erreur");
@@ -128,7 +144,7 @@ public class Plus extends Fragment   { //implements OnMapReadyCallback
                 }
                 mGoogleMap.addMarker(new MarkerOptions().position(loc).title(addressTitle).snippet(""));
 
-                // For zooming automatically to the location of the marker
+                //Position de la camera sur le marker
                 CameraPosition cameraPosition = new CameraPosition.Builder().target(loc).zoom(18).build();
                 mGoogleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
@@ -136,8 +152,6 @@ public class Plus extends Fragment   { //implements OnMapReadyCallback
 
         return view;
 
-
     }
-
 
 }
