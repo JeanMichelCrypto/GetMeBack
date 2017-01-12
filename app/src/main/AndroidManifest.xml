@@ -6,6 +6,10 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
 
 
     <application
@@ -25,5 +29,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDGkecbBZEFKNprN1NQwIWi1PnS8wU2sPM"/>
     </application>
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"
+        />
 
 </manifest>
