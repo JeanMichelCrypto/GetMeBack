@@ -29,12 +29,6 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
-import java.util.Date;
-
-
-/**
- * Created by Lucas on 07/01/2017.
- */
 public class Menu extends Fragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     AlertDialog.Builder dlgAlert;
@@ -51,7 +45,8 @@ public class Menu extends Fragment implements GoogleApiClient.ConnectionCallback
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.menu, container, false);
-        //Instancier vos composants graphique ici (faîtes vos findViewById)
+
+        final TinyDB tinydb = new TinyDB(getActivity());
 
         if (ContextCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -85,7 +80,8 @@ public class Menu extends Fragment implements GoogleApiClient.ConnectionCallback
                 FragmentManager fragmentManager = getFragmentManager();
                 android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 ListeAddresses AddressFragment = new ListeAddresses();
-                fragmentTransaction.add(R.id.activity_main, AddressFragment);
+                fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
+                fragmentTransaction.replace(R.id.activity_main, AddressFragment);
                 fragmentTransaction.commit();
             }
         });
@@ -94,37 +90,41 @@ public class Menu extends Fragment implements GoogleApiClient.ConnectionCallback
 
             @Override
             public void onClick(View v) {
-                Uri gmmIntentUri = Uri.parse("google.navigation:q=48.659835,6.187832");
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                mapIntent.setPackage("com.google.android.apps.maps");
-                startActivity(mapIntent);
+                FragmentManager fragmentManager = getFragmentManager();
+                android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                Choix1 choix = new Choix1();
+                fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
+                fragmentTransaction.replace(R.id.activity_main, choix);
+                fragmentTransaction.commit();
             }
         });
 
         posButton.setOnClickListener(new View.OnClickListener() {
 
-                                         @Override
-                                         public void onClick(View v) {
-                                             if (ContextCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION)
-                                                     == PackageManager.PERMISSION_GRANTED) {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION)
+                        == PackageManager.PERMISSION_GRANTED) {
 
-
-                                             }
-                                             startLocationUpdates();
-                                             Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
-                                                     mGoogleApiClient);
-                                             if (mLastLocation != null) {
-                                                 lat = String.valueOf(mLastLocation.getLatitude());
-                                                 lon = String.valueOf(mLastLocation.getLongitude());
-                                             }
-                                             dlgAlert.setMessage("Lat= " + lat + " & long= " + lon);
-                                             dlgAlert.setTitle("Position récupérée");
-                                             dlgAlert.setCancelable(true);
-                                             dlgAlert.create().show();
-
-                                         }
-                                     }
-        );
+                }
+                startLocationUpdates();
+                Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
+                        mGoogleApiClient);
+                if (mLastLocation != null) {
+                    tinydb.putDouble("lastLat", mLastLocation.getLatitude());
+                    tinydb.putDouble("lastLong", mLastLocation.getLongitude());
+                    dlgAlert.setTitle("Position récupérée");
+                    dlgAlert.setMessage("Votre position a été correctement enregistrée");
+                    dlgAlert.setCancelable(true);
+                    dlgAlert.create().show();
+                } else {
+                    dlgAlert.setTitle("Erreur");
+                    dlgAlert.setMessage("Activez votre GPS ou réessayez dans quelques instants");
+                    dlgAlert.setCancelable(true);
+                    dlgAlert.create().show();
+                }
+             }
+        });
 
         return view;
     }

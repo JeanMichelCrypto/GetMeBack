@@ -40,8 +40,9 @@ public class ListeAddresses extends Fragment {
             public void onClick(View v) {
                 FragmentManager fragmentManager = getFragmentManager();
                 android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
                 Menu menuFragment = new Menu();
-                fragmentTransaction.add(R.id.activity_main, menuFragment);
+                fragmentTransaction.replace(R.id.activity_main, menuFragment);
                 fragmentTransaction.commit();
             }
         });
@@ -52,8 +53,9 @@ public class ListeAddresses extends Fragment {
             public void onClick(View v) {
                 FragmentManager fragmentManager = getFragmentManager();
                 android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
                 AjouterAdr ajout = new AjouterAdr();
-                fragmentTransaction.add(R.id.activity_main, ajout);
+                fragmentTransaction.replace(R.id.activity_main, ajout);
                 fragmentTransaction.commit();
             }
         });
@@ -96,14 +98,13 @@ public class ListeAddresses extends Fragment {
                 public void onClick(View v) {
                     FragmentManager fragmentManager = getFragmentManager();
                     android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
                     Plus plus = new Plus();
                     Bundle args = new Bundle();
                     args.putInt("id", position);
                     plus.setArguments(args);
-                    fragmentTransaction.add(R.id.activity_main, plus);
+                    fragmentTransaction.replace(R.id.activity_main, plus);
                     fragmentTransaction.commit();
-
-                    Toast.makeText(getContext(), "Button was clicked for list item " + position, Toast.LENGTH_SHORT).show();
                 }
             });
             mainViewholder.title.setText(getItem(position));

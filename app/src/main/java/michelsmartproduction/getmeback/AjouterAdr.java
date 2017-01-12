@@ -33,7 +33,8 @@ public class AjouterAdr extends Fragment {
                 FragmentManager fragmentManager = getFragmentManager();
                 android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 ListeAddresses listeAdr = new ListeAddresses();
-                fragmentTransaction.add(R.id.activity_main, listeAdr);
+                fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
+                fragmentTransaction.replace(R.id.activity_main, listeAdr);
                 fragmentTransaction.commit();
             }
         });
@@ -48,8 +49,9 @@ public class AjouterAdr extends Fragment {
                 tinydb.putListString("listAddr", finalListe);
                 FragmentManager fragmentManager = getFragmentManager();
                 android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
                 ListeAddresses listeAdr = new ListeAddresses();
-                fragmentTransaction.add(R.id.activity_main, listeAdr);
+                fragmentTransaction.replace(R.id.activity_main, listeAdr);
                 fragmentTransaction.commit();
             }
         });

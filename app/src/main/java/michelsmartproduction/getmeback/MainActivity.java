@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity  {
         FragmentManager fragmentManager = getFragmentManager();
         android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Menu Menufragment = new Menu();
-        fragmentTransaction.add(R.id.activity_main, Menufragment);
+        fragmentTransaction.replace(R.id.activity_main, Menufragment);
         fragmentTransaction.commit();
 
     }
