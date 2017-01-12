@@ -53,8 +53,8 @@ public class Choix2 extends Fragment {
                 FragmentManager fragmentManager = getFragmentManager();
                 android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
-                Menu menu = new Menu();
-                fragmentTransaction.replace(R.id.activity_main, menu);
+                ListeAddresses liste = new ListeAddresses();
+                fragmentTransaction.replace(R.id.activity_main, liste);
                 fragmentTransaction.commit();
             }
         });
