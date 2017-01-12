@@ -21,26 +21,33 @@
         android:text="Y aller!"
         android:id="@+id/go"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="73dp"
         android:layout_below="@+id/adresse"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Supprimer"
-        android:id="@+id/supprimer"
-        android:layout_below="@+id/go"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        android:background="@color/red"/>
+        android:layout_toStartOf="@+id/adresse" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Retour"
         android:id="@+id/retour2"
-        android:layout_below="@+id/supprimer"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/supprimer"
+        android:layout_marginBottom="121dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Supprimer"
+        android:id="@+id/supprimer"
+        android:background="@color/red"
+        android:layout_marginEnd="55dp"
+        android:layout_alignBaseline="@+id/go"
+        android:layout_alignBottom="@+id/go"
+        android:layout_alignParentEnd="true" />
+
+    <com.google.android.gms.maps.MapView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:id="@+id/mapView" />
 </RelativeLayout>

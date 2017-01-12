@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.text.format.DateFormat;
@@ -70,6 +71,8 @@ public class Menu extends Fragment implements GoogleApiClient.ConnectionCallback
         dlgAlert = new AlertDialog.Builder(getActivity());
         final Button listButton = (Button) view.findViewById(R.id.listButton);
         final Button posButton = (Button) view.findViewById(R.id.savePos);
+        final Button goButton = (Button) view.findViewById(R.id.getBack);
+
 
         assert listButton != null;
         assert posButton != null;
@@ -84,6 +87,17 @@ public class Menu extends Fragment implements GoogleApiClient.ConnectionCallback
                 ListeAddresses AddressFragment = new ListeAddresses();
                 fragmentTransaction.add(R.id.activity_main, AddressFragment);
                 fragmentTransaction.commit();
+            }
+        });
+
+        goButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Uri gmmIntentUri = Uri.parse("google.navigation:q=48.659835,6.187832");
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
             }
         });
 
