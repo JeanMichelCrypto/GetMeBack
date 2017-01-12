@@ -34,8 +34,8 @@
         android:layout_height="wrap_content"
         android:text="A pied"
         android:id="@+id/pied"
-        android:layout_gravity="center"
         android:checked="true"
+        android:layout_marginLeft="10dp"
         android:buttonTint="@color/orange"/>
 
     <RadioButton
@@ -43,8 +43,8 @@
         android:layout_height="wrap_content"
         android:text="En vélo"
         android:id="@+id/velo"
-        android:layout_gravity="center"
         android:layout_marginTop="60dp"
+        android:layout_marginLeft="10dp"
         android:buttonTint="@color/orange"/>
 
     <RadioButton
@@ -52,8 +52,8 @@
         android:layout_height="wrap_content"
         android:text="En voiture"
         android:id="@+id/voiture"
-        android:layout_gravity="center"
         android:layout_marginTop="60dp"
+        android:layout_marginLeft="10dp"
         android:buttonTint="@color/orange"/>
 
     </RadioGroup>
