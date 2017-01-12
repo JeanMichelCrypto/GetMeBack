@@ -62,7 +62,6 @@ public class Menu extends Fragment implements GoogleApiClient.ConnectionCallback
                     .build();
         }
 
-        // mGoogleApiClient.connect(); //--------------------------------------------------------------------------------------------
         dlgAlert = new AlertDialog.Builder(getActivity());
         final Button listButton = (Button) view.findViewById(R.id.listButton);
         final Button posButton = (Button) view.findViewById(R.id.savePos);

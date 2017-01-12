@@ -12,6 +12,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,10 +37,10 @@ public class Plus extends Fragment   { //implements OnMapReadyCallback
 
     private GoogleMap mGoogleMap;
     MapView mMapView;
-    //View view;
     String addressTitle;
     double lat = 0;
     double lon = 0;
+    AlertDialog.Builder dlgAlert;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.plus, container, false);
@@ -51,7 +52,7 @@ public class Plus extends Fragment   { //implements OnMapReadyCallback
         Button suppr = (Button) view.findViewById(R.id.supprimer);
         Button retour = (Button) view.findViewById(R.id.retour2);
 
-
+        dlgAlert = new AlertDialog.Builder(getActivity());
         final TinyDB tinydb = new TinyDB(getActivity());
         final ArrayList<String> liste = tinydb.getListString("listAddr");
         final int id = getArguments().getInt("id");
@@ -94,10 +95,16 @@ public class Plus extends Fragment   { //implements OnMapReadyCallback
         Geocoder geoCoder = new Geocoder(getActivity(), Locale.getDefault());
         try {
             List<Address> address = geoCoder.getFromLocationName(adr, 1);
-            lat = address.get(0).getLatitude();
-            lon = address.get(0).getLongitude();
+            if (address.size()>0) {
+                lat = address.get(0).getLatitude();
+                lon = address.get(0).getLongitude();
+            }else {
+                lat = 0;
+                lon = 0;
+            }
         } catch (IOException e) {
             e.printStackTrace();
+
         }
         try {
             MapsInitializer.initialize(getActivity().getApplicationContext());
@@ -113,6 +120,12 @@ public class Plus extends Fragment   { //implements OnMapReadyCallback
 
                 // For dropping a marker at a point on the Map
                 LatLng loc = new LatLng(lat, lon);
+                if (lat == 0 && lon == 0){
+                    dlgAlert.setTitle("Erreur");
+                    dlgAlert.setMessage("Votre adresse n'existe pas");
+                    dlgAlert.setCancelable(true);
+                    dlgAlert.create().show();
+                }
                 mGoogleMap.addMarker(new MarkerOptions().position(loc).title(addressTitle).snippet(""));
 
                 // For zooming automatically to the location of the marker
@@ -127,19 +140,4 @@ public class Plus extends Fragment   { //implements OnMapReadyCallback
     }
 
 
-
-
-   /* public void onMapReady(GoogleMap googleMap) {
-
-        MapsInitializer.initialize(getActivity());
-        mGoogleMap=googleMap;
-        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        googleMap.addMarker(new MarkerOptions()
-        .position(new LatLng(10,10))
-        .title(address));
-        CameraPosition basis = CameraPosition.builder()
-                .target(new LatLng(10 ,10)).zoom(16).bearing(0).tilt(45).build();
-        googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(basis));
-
-    }*/
 }
