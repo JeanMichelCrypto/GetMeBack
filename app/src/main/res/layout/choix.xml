@@ -25,7 +25,8 @@
         android:id="@+id/pied"
         android:layout_below="@+id/choixTitre"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="82dp" />
+        android:layout_marginTop="82dp"
+        android:checked="true"/>
 
     <RadioButton
         android:layout_width="wrap_content"

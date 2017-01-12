@@ -16,7 +16,7 @@ import android.widget.RadioButton;
 public class Choix1 extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.choix, container, false);
+        final View view = inflater.inflate(R.layout.choix, container, false);
 
         final RadioButton pied = (RadioButton) view.findViewById(R.id.pied);
         final RadioButton velo = (RadioButton) view.findViewById(R.id.velo);
