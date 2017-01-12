@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Comment y aller?"
+        android:id="@+id/choixTitre"
+        android:layout_centerHorizontal="true" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/radioGroup">
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A pied"
+        android:id="@+id/pied"
+        android:layout_below="@+id/choixTitre"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="82dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="En vélo"
+        android:id="@+id/velo"
+        android:layout_below="@+id/pied"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="En voiture"
+        android:id="@+id/voiture"
+        android:layout_below="@+id/velo"
+        android:layout_marginTop="62dp"
+        android:layout_centerHorizontal="true" />
+
+    </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C'est parti!"
+        android:id="@+id/lancerMaps"
+        android:layout_below="@+id/radioGroup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retour"
+        android:id="@+id/choixRetour"
+        android:layout_below="@+id/lancerMaps"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp" />
+
+
+</RelativeLayout>
