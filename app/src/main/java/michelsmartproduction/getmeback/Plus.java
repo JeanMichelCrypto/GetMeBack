@@ -67,8 +67,9 @@ public class Plus extends Fragment   { //implements OnMapReadyCallback
             public void onClick(View v) {
                 FragmentManager fragmentManager = getFragmentManager();
                 android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
                 ListeAddresses listeAdr = new ListeAddresses();
-                fragmentTransaction.add(R.id.activity_main, listeAdr);
+                fragmentTransaction.replace(R.id.activity_main, listeAdr);
                 fragmentTransaction.commit();
             }
         });
@@ -82,8 +83,9 @@ public class Plus extends Fragment   { //implements OnMapReadyCallback
 
                 FragmentManager fragmentManager = getFragmentManager();
                 android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
                 ListeAddresses listeAdr = new ListeAddresses();
-                fragmentTransaction.add(R.id.activity_main, listeAdr);
+                fragmentTransaction.replace(R.id.activity_main, listeAdr);
                 fragmentTransaction.commit();
             }
         });
