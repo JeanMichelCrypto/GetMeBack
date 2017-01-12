@@ -37,8 +37,8 @@ public class Menu extends Fragment implements GoogleApiClient.ConnectionCallback
     private Location mLastLocation;
 
 
-    private long INTERVAL = 10 * 1000;  /* 10 secs */
-    private long FASTEST_INTERVAL = 2000; /* 2 sec */
+    private long INTERVAL = 10 * 1000;  // 10 secs
+    private long FASTEST_INTERVAL = 2000; // 2 sec
     private static final int PERMISSION_ACCESS_COARSE_LOCATION = 1;
     public String lat = "";
     public String lon = "";
@@ -128,13 +128,7 @@ public class Menu extends Fragment implements GoogleApiClient.ConnectionCallback
         return view;
     }
 
-    public void onConnected(@Nullable Bundle bundle) { //bundle=(connectionHint)
-        //Log.i(MainActivity.class.getSimpleName(), "Connected to Google Play Services!");
-
-       /* if (ContextCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-
-        }*/
+    public void onConnected(@Nullable Bundle bundle) {
 
     }
 
