@@ -69,7 +69,7 @@ public class Plus extends Fragment   {
             public void onClick(View v) {
                 FragmentManager fragmentManager = getFragmentManager();
                 android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
+                fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_right);
                 ListeAddresses listeAdr = new ListeAddresses();
                 fragmentTransaction.replace(R.id.activity_main, listeAdr);
                 fragmentTransaction.commit();
@@ -87,7 +87,7 @@ public class Plus extends Fragment   {
                 choix.setArguments(args);
                 FragmentManager fragmentManager = getFragmentManager();
                 android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
+                fragmentTransaction.setCustomAnimations(R.anim.slide_left, R.anim.slide_right);
                 fragmentTransaction.replace(R.id.activity_main, choix);
                 fragmentTransaction.commit();
             }

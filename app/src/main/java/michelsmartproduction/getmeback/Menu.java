@@ -91,8 +91,8 @@ public class Menu extends Fragment implements GoogleApiClient.ConnectionCallback
             public void onClick(View v) {
                 FragmentManager fragmentManager = getFragmentManager();
                 android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.setCustomAnimations(R.anim.slide_left, R.anim.slide_right);
                 Choix1 choix = new Choix1();
-                fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
                 fragmentTransaction.replace(R.id.activity_main, choix);
                 fragmentTransaction.commit();
             }

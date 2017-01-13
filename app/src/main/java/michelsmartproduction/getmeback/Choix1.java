@@ -53,7 +53,7 @@ public class Choix1 extends Fragment {
             public void onClick(View v) {
                 FragmentManager fragmentManager = getFragmentManager();
                 android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.setCustomAnimations(R.anim.slide_top, R.anim.slide_bot);
+                fragmentTransaction.setCustomAnimations(R.anim.slide_left, R.anim.slide_right);
                 Menu menu = new Menu();
                 fragmentTransaction.replace(R.id.activity_main, menu);
                 fragmentTransaction.commit();
