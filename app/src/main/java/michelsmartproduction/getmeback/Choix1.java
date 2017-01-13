@@ -21,8 +21,8 @@ public class Choix1 extends Fragment {
         final RadioButton pied = (RadioButton) view.findViewById(R.id.pied);
         final RadioButton velo = (RadioButton) view.findViewById(R.id.velo);
         final RadioButton voiture = (RadioButton) view.findViewById(R.id.voiture);
-        Button lancer = (Button) view.findViewById(R.id.lancerMaps);
-        Button retour = (Button) view.findViewById(R.id.choixRetour);
+        michelsmartproduction.getmeback.CustomButton lancer = (michelsmartproduction.getmeback.CustomButton) view.findViewById(R.id.lancerMaps);
+        michelsmartproduction.getmeback.CustomButton retour = (michelsmartproduction.getmeback.CustomButton) view.findViewById(R.id.choixRetour);
         TinyDB tinydb = new TinyDB(getActivity());
         final Double lat = tinydb.getDouble("lastLat", 0);
         final Double lon = tinydb.getDouble("lastLong", 0);

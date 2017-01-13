@@ -21,8 +21,8 @@ public class Choix2 extends Fragment {
         final RadioButton pied = (RadioButton) view.findViewById(R.id.pied);
         final RadioButton velo = (RadioButton) view.findViewById(R.id.velo);
         final RadioButton voiture = (RadioButton) view.findViewById(R.id.voiture);
-        Button lancer = (Button) view.findViewById(R.id.lancerMaps);
-        Button retour = (Button) view.findViewById(R.id.choixRetour);
+        michelsmartproduction.getmeback.CustomButton lancer = (michelsmartproduction.getmeback.CustomButton) view.findViewById(R.id.lancerMaps);
+        michelsmartproduction.getmeback.CustomButton retour = (michelsmartproduction.getmeback.CustomButton) view.findViewById(R.id.choixRetour);
         final Double lat = getArguments().getDouble("lat");
         final Double lon = getArguments().getDouble("lon");
 

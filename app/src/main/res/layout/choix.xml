@@ -14,7 +14,8 @@
         android:id="@+id/choixTitre"
         app:font="bernadette.ttf"
         android:textColor="@color/noir"
-        android:textSize="40sp"
+        android:textSize="45sp"
+        android:textAlignment="center"
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true" />
 
@@ -26,8 +27,8 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/choixTitre"
         android:layout_marginTop="70dp"
-        android:layout_marginLeft="250dp"
-        android:background="#CCFFFFFF">
+        android:layout_marginLeft="200dp"
+        android:background="#E5FFFFFF">
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -35,7 +36,9 @@
         android:text="A pied"
         android:id="@+id/pied"
         android:checked="true"
+        android:textSize="25sp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
         android:buttonTint="@color/orange"/>
 
     <RadioButton
@@ -43,6 +46,7 @@
         android:layout_height="wrap_content"
         android:text="En vélo"
         android:id="@+id/velo"
+        android:textSize="25sp"
         android:layout_marginTop="60dp"
         android:layout_marginLeft="10dp"
         android:buttonTint="@color/orange"/>
@@ -52,25 +56,39 @@
         android:layout_height="wrap_content"
         android:text="En voiture"
         android:id="@+id/voiture"
+        android:textSize="25sp"
         android:layout_marginTop="60dp"
         android:layout_marginLeft="10dp"
-        android:buttonTint="@color/orange"/>
+        android:buttonTint="@color/orange"
+        android:layout_marginBottom="2dp"/>
 
     </RadioGroup>
 
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="90dp"
+    <michelsmartproduction.getmeback.CustomButton
+        android:layout_width="170dp"
+        android:layout_height="70dp"
         android:text="C'est parti!"
+        android:textSize="20sp"
+        android:textColor="@color/white"
         android:id="@+id/lancerMaps"
+        app:font="georgette.ttf"
+        android:background="@drawable/button_bg_transparent"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="1dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
 
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="90dp"
+    <michelsmartproduction.getmeback.CustomButton
+        android:layout_width="170dp"
+        android:layout_height="70dp"
         android:text="Retour"
+        android:textSize="20sp"
+        android:textColor="@color/white"
         android:id="@+id/choixRetour"
+        app:font="georgette.ttf"
+        android:background="@drawable/button_bg_transparent"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="1dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
 
