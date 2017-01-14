@@ -26,7 +26,7 @@
 
     <michelsmartproduction.getmeback.CustomButton
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
         android:text="@string/enregistrer_ma_position"
         android:id="@+id/savePos"
         android:layout_below="@+id/titre"
@@ -43,7 +43,7 @@
 
     <michelsmartproduction.getmeback.CustomButton
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
         android:text="@string/ramener"
         android:id="@+id/getBack"
         android:layout_marginTop="35dp"
@@ -60,7 +60,7 @@
 
     <michelsmartproduction.getmeback.CustomButton
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
         android:text="@string/liste_addresses"
         android:id="@+id/listButton"
         app:font="georgette.ttf"
@@ -77,7 +77,7 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="200px"
+        android:layout_height="150px"
         android:id="@+id/logo"
         android:src="@drawable/logo"
         android:layout_marginTop="10dp"

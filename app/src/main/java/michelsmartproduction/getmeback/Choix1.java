@@ -21,6 +21,7 @@ public class Choix1 extends Fragment {
         michelsmartproduction.getmeback.CustomButton lancer = (michelsmartproduction.getmeback.CustomButton) view.findViewById(R.id.lancerMaps);
         michelsmartproduction.getmeback.CustomButton retour = (michelsmartproduction.getmeback.CustomButton) view.findViewById(R.id.choixRetour);
         TinyDB tinydb = new TinyDB(getActivity());
+        //Récupération de la dernière position enregistrée avec "enregister ma position"
         final Double lat = tinydb.getDouble("lastLat", 0);
         final Double lon = tinydb.getDouble("lastLong", 0);
 
@@ -36,6 +37,7 @@ public class Choix1 extends Fragment {
                 } else if (voiture.isChecked()) {
                     mode = "d";
                 }
+                //Envoie des données utiles (lat et lon de la destination + mode) pour utiliser la navigation de Google Maps
                 Uri gmmIntentUri = Uri.parse("google.navigation:q=" + String.valueOf(lat) + "," +
                         String.valueOf(lon) + "&mode=" + mode);
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);

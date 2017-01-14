@@ -39,7 +39,7 @@ public class Menu extends Fragment implements GoogleApiClient.ConnectionCallback
         View view = inflater.inflate(R.layout.menu, container, false);
 
         final TinyDB tinydb = new TinyDB(getActivity());
-
+        //Demande de permission en runtime
         if (ContextCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
@@ -99,6 +99,7 @@ public class Menu extends Fragment implements GoogleApiClient.ConnectionCallback
 
                 }
                 startLocationUpdates();
+                // Récupération de la position actuelle et stockage dans tinydb
                 Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
                         mGoogleApiClient);
                 if (mLastLocation != null) {

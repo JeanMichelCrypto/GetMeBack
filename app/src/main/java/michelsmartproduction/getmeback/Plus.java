@@ -101,7 +101,7 @@ public class Plus extends Fragment   {
             }
         });
 
-
+        // utilisation d'un geocoder pour convertir une adresse en location Google
         Geocoder geoCoder = new Geocoder(getActivity(), Locale.getDefault());
         try {
             List<Address> address = geoCoder.getFromLocationName(adr, 1);
@@ -131,7 +131,7 @@ public class Plus extends Fragment   {
                 LatLng loc = new LatLng(lat, lon);
                 if (lat == 0 && lon == 0){
                     dlgAlert.setTitle("Erreur");
-                    dlgAlert.setMessage("Votre adresse n'existe pas");
+                    dlgAlert.setMessage("Votre adresse n'est pas reconnue");
                     dlgAlert.setCancelable(true);
                     dlgAlert.create().show();
                 }
