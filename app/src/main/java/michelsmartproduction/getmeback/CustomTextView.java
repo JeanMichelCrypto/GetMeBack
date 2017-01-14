@@ -20,13 +20,13 @@ public class CustomTextView extends TextView {
         //accède aux attributs ajoutés à cette CustomTextView
         TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.CustomTextView);
 
-        //récupère l'attribut "font"
+        //récupère l'attribut font
         String fontName = styledAttrs.getString(R.styleable.CustomTextView_font);
 
-        //permet au garbage collector de récupérer l'espace utilisé par ce TypedArray
+        //permet au garbage collector de récupérer l'espace utilisé
         styledAttrs.recycle();
 
-        //puis modifie la font de cet élément
+        //modifie la font de cet élément
         setTypeFace(fontName);
     }
 

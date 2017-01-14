@@ -7,15 +7,11 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.Button;
 
-/**
- * Created by Lucas on 06/01/2017.
- */
 public class CustomButton extends Button {
 
     public CustomButton(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        //Typeface.createFromAsset doesn't work in the layout editor. Skipping...
         if (isInEditMode()) {
             return;
         }
@@ -23,13 +19,13 @@ public class CustomButton extends Button {
         //accède aux attributs ajoutés à cette CustomTextView
         TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.CustomTextView);
 
-        //récupère l'attribut "font"
+        //récupère l'attribut font
         String fontName = styledAttrs.getString(R.styleable.CustomTextView_font);
 
-        //permet au garbage collector de récupérer l'espace utilisé par ce TypedArray
+        //permet au garbage collector de récupérer l'espace utilisé
         styledAttrs.recycle();
 
-        //puis modifie la font de cet élément
+        //modifie la font de cet élément
         setTypeFace(fontName);
     }
 

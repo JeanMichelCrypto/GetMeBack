@@ -1,29 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/noir">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="adresse"
-        android:textColor="@color/noir"
+        android:textColor="@color/white"
         android:textSize="25sp"
         android:textAlignment="center"
         android:id="@+id/textViewforlist"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="10dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true" />
 
-    <Button
+    <michelsmartproduction.getmeback.CustomButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Plus"
+        android:textColor="@color/white"
+        app:font="georgette.ttf"
         android:id="@+id/buttonforlist"
         android:layout_gravity="end"
+        android:background="@drawable/button_custom_choix"
+        android:layout_marginTop="4dp"
         android:layout_below="@+id/textViewforlist"
         android:layout_centerHorizontal="true" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/buttonforlist"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"></FrameLayout>
 
 </RelativeLayout>

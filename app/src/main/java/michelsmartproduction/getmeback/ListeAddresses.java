@@ -3,9 +3,7 @@ package michelsmartproduction.getmeback;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +24,6 @@ public class ListeAddresses extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.listeadr, container, false);
-        //Instancier vos composants graphique ici (faîtes vos findViewById)
 
         android.support.design.widget.FloatingActionButton retour = (android.support.design.widget.FloatingActionButton) view.findViewById(R.id.retour);
         android.support.design.widget.FloatingActionButton ajouter = (android.support.design.widget.FloatingActionButton) view.findViewById(R.id.addAdd);
@@ -89,7 +86,7 @@ public class ListeAddresses extends Fragment {
                 convertView = inflater.inflate(layout, parent, false);
                 ViewHolder viewHolder = new ViewHolder();
                 viewHolder.title = (TextView) convertView.findViewById(R.id.textViewforlist);
-                viewHolder.button = (Button) convertView.findViewById(R.id.buttonforlist);
+                viewHolder.button = (michelsmartproduction.getmeback.CustomButton) convertView.findViewById(R.id.buttonforlist);
                 convertView.setTag(viewHolder);
             }
             mainViewholder = (ViewHolder) convertView.getTag();
