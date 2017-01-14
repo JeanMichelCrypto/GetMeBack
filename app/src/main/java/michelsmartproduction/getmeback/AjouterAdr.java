@@ -19,8 +19,8 @@ public class AjouterAdr extends Fragment {
         final EditText ville = (EditText) view.findViewById(R.id.ville);
         final EditText rue = (EditText) view.findViewById(R.id.rue);
         final EditText num = (EditText) view.findViewById(R.id.num);
-        Button ajouter = (Button) view.findViewById(R.id.ajouter);
-        Button retour = (Button) view.findViewById(R.id.annuler);
+        michelsmartproduction.getmeback.CustomButton ajouter = (michelsmartproduction.getmeback.CustomButton) view.findViewById(R.id.ajouter);
+        michelsmartproduction.getmeback.CustomButton retour = (michelsmartproduction.getmeback.CustomButton) view.findViewById(R.id.annuler);
 
         final TinyDB tinydb = new TinyDB(getActivity());
         ArrayList<String> liste = new ArrayList<String>();
